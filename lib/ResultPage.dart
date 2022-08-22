@@ -142,7 +142,7 @@ class _ResultPageState extends State<ResultPage> {
               Card(
                 child: SizedBox(
                   height: 250,
-                  width: 200,
+                  width: 350,
                   child: FutureBuilder(
                     future: getDbData(),
                     builder: (context, key) {
@@ -150,15 +150,17 @@ class _ResultPageState extends State<ResultPage> {
                         case ConnectionState.waiting:
                           return CircularProgressIndicator();
                         default:
-                          return ListView.builder(
-                            itemCount: dbList.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Container(
+                          return Container(
+                            color: Colors.blue.shade300,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: ListView.builder(
+                                itemCount: dbList.length,
+                                itemBuilder: (context, index) {
+                                  return Container(
                                     padding: EdgeInsets.all(8),
                                     decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.blue),
+                                      border: Border.all(color: Colors.white),
                                     ),
                                     child: Text(
                                       DateFormat.yMMMMd().format(
@@ -167,8 +169,10 @@ class _ResultPageState extends State<ResultPage> {
                                               DateTime.now()),
                                       textAlign: TextAlign.center,
                                     ),
-                                  ));
-                            },
+                                  );
+                                },
+                              ),
+                            ),
                           );
                       }
                     },
