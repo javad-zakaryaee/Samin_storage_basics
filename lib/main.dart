@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           vertical: 15, horizontal: 30),
                       child: TextFormField(
                         decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: OutlineInputBorder(),
                             labelText: 'birthday'),
                         readOnly: true,
                         onTap: () async {
